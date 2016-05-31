@@ -6,7 +6,7 @@ Compile Jade templates for use in Meteor Angular 1.x, Angular 2.x or anything el
 
 ## Installation
 
-`meteor add gooor:jade-export`
+`meteor add mgorczynski:jade-export`
 
 ## Usage
 
