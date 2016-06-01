@@ -1,6 +1,6 @@
 var minify = Npm.require('html-minifier').minify;
 var jade = Npm.require('jade');
-var jadeOpts = {pretty:true, compileDebug:false};
+var jadeOpts = {pretty: false, compileDebug: false};
 
 function JadeCompiler() {}
 JadeCompiler.prototype.processFilesForTarget = function (files) {
@@ -11,15 +11,8 @@ JadeCompiler.prototype.processFilesForTarget = function (files) {
     var inputFilePath = file.getPathInPackage();
 
     var output = jade.compile(file.getContentsAsString(), jadeOpts)();
-    var minifiedHtml = minify(output.replace(/'/g, "\\'"), {
-      collapseWhitespace : true,
-      conservativeCollapse : true,
-      removeComments : true,
-      minifyJS : true,
-      minifyCSS: true,
-      processScripts : ['text/ng-template']
-    });
-    var results = "exports['default'] = '" + minifiedHtml + "'; module.exports = exports['default']";
+    var minifiedHtml = output.replace(/'/g, "\\'");
+    var results = "exports['default'] = '" + minifiedHtml + "'; exports.template = exports['default']; module.exports = exports";
 
     file.addJavaScript({
       sourcePath: inputFilePath,
