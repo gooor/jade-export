@@ -21,6 +21,6 @@ Package.registerBuildPlugin({
   ],
   npmDependencies : {
     'html-minifier': '0.7.2',
-    'jade': '1.9.2'
+    'jade': '1.11.0'
   }
 });
