@@ -1,7 +1,7 @@
 Package.describe({
   name: "mgorczynski:jade-export",
   summary: "Jade templating for angular 1 and 2",
-  version: "1.0.0",
+  version: "1.1.0",
   git: 'https://github.com/gooor/jade-export'
 });
 
